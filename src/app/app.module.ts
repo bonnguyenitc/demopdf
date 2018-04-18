@@ -8,8 +8,6 @@ import {MatTableModule} from '@angular/material/table';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { HttpClientModule } from '@angular/common/http';
 import { enableProdMode } from '@angular/core';
@@ -21,7 +19,7 @@ import { DetailPdfComponent } from './detail-pdf/detail-pdf.component';
 import { FormAddPdfComponent } from './form-add-pdf/form-add-pdf.component';
 import { AppRoutingModule } from './/app-routing.module';
 import {environment} from '../environments/environment';
-import {PdfFbService} from './pdf-fb.service';
+
 
 
 enableProdMode();
@@ -35,8 +33,6 @@ enableProdMode();
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
     FormsModule,
     MatInputModule,
     BrowserAnimationsModule,
@@ -48,7 +44,7 @@ enableProdMode();
     PdfViewerModule,
     HttpClientModule
   ],
-  providers: [PdfFbService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

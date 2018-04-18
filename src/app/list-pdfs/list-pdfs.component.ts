@@ -1,7 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {PdfFbService} from '../pdf-fb.service';
 import {PdfFile} from '../models/pdffile';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-list-pdfs',
@@ -13,13 +12,24 @@ export class ListPdfsComponent implements OnInit {
   displayedColumns = ['position', 'title'];
   dataSource;
   index = 0;
-  constructor(private  pdfService: PdfFbService) {
-    this.pdfService.getAll().subscribe(pdf => {
-      pdf.map((value, id) => this.pdfs.push({ position: id, title: value.title}));
+  listPdf = [
+    {
+      title: 'phntchvthitkhthngqunlbnhng.pdf'
+    },
+    {
+      title: 'maubaocaoproject1.pdf'
+    },
+    {
+      title: 'QD_399_QD_DHH.PDF'
+    }
+  ];
+  constructor() {
+
+      this.listPdf.map((value, id) => this.pdfs.push({ position: id, title: value.title}));
       // this.pdfs = pdf;
-      // console.log('aa', this.pdfs);
+      console.log('aa', this.pdfs);
       this.dataSource = new MatTableDataSource<PdfFile>(this.pdfs);
-    });
+
   }
 
   applyFilter(filterValue: string) {
