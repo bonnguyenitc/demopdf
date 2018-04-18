@@ -1,0 +1,19 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>Thêm PDF</mat-card-title>
+    <div *ngIf="isShow" class="alert alert-success" role="alert">
+      Thêm thành công ...
+    </div>
+    <mat-card-content>
+      <form #f="ngForm" (ngSubmit)="save(f.value)">
+        <div class="form-group">
+          <input  ngModel #title="ngModel" type="text" class="form-control" id="title" name="title" placeholder="Nhập tên file pdf ..." required>
+          <div class="alert alert-danger"  *ngIf="title.touched && title.invalid" >
+              Không được bỏ trống
+          </div>
+        </div>
+        <button [disabled]="!f.form.valid" mat-raised-button color="warn" type="submit">Save</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

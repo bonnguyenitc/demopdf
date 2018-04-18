@@ -1,0 +1,36 @@
+<br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+    <pdf-viewer>
+    </pdf-viewer>
+    <canvas id="the-canvas"></canvas>
+    </div>
+    <div class="col-md-3">
+        <form #f="ngForm" (ngSubmit)="save(f.value)">
+          <div class="form-group">
+            <input  ngModel #title="ngModel" type="text" class="form-control" id="title" name="title" placeholder="Nhập tên công ty" required>
+            <div class="alert alert-danger"  *ngIf="title.touched && title.invalid" >
+              Không được bỏ trống
+            </div>
+          </div>
+          <div class="form-group">
+            <input  ngModel #so="ngModel" type="number" class="form-control" id="so" name="so" placeholder="Nhập số" required>
+            <div class="alert alert-danger"  *ngIf="so.touched && so.invalid" >
+              Không được bỏ trống
+            </div>
+          </div>
+          <div class="form-group">
+            <input  ngModel #ngay="ngModel" type="text" class="form-control" id="ngay" name="ngay" placeholder="Nhập ngày" required>
+            <div class="alert alert-danger"  *ngIf="ngay.touched && ngay.invalid" >
+              Không được bỏ trống
+            </div>
+          </div>
+          <button [disabled]="!f.form.valid" mat-raised-button color="warn" type="submit">Xem</button>
+        </form>
+      <br><br>
+      <button mat-raised-button color="primary" (click)="download()"> Save </button>
+      <button mat-raised-button color="primary" routerLink="/"> Danh sách </button>
+    </div>
+  </div>
+</div>
