@@ -35,7 +35,8 @@ export class DetailPdfComponent implements OnInit {
                 const scale = 1.3;
                 const viewport = page.getViewport(scale);
                 // Prepare canvas using PDF page dimensions
-                const canvas = document.getElementById('the-canvas');
+                const canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('the-canvas');
+                // const canvas = document.getElementById('the-canvas');
                 const context = canvas.getContext('2d');
                 canvas.height = viewport.height;
                 canvas.width = viewport.width;
@@ -62,7 +63,9 @@ export class DetailPdfComponent implements OnInit {
 
   download() {
     try {
-      const canvas = document.getElementById('the-canvas');
+      const canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('the-canvas');
+      // var ctx: CanvasRenderingContext2D = canvas.getContext("2d");
+      // const canvas = document.getElementById('the-canvas');
       canvas.getContext('2d');
       const imgData = canvas.toDataURL('image/jpeg', 1.0);
       const pdf = new jsPDF();
@@ -76,7 +79,8 @@ export class DetailPdfComponent implements OnInit {
   }
 
   drawForm(title, so, ngay) {
-    const canvas = document.getElementById('the-canvas');
+    // const canvas = document.getElementById('the-canvas');
+    const canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('the-canvas');
     const context = canvas.getContext('2d');
     context.font = '40pt Calibri';
     // context.fillText('My TEXT!', 50, 60);
